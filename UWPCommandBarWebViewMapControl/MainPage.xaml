@@ -5,9 +5,30 @@
     xmlns:local="using:UWPCommandBarWebViewMapControl"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:map="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <!--<CommandBar ClosedDisplayMode="Minimal">-->
+            <AppBarButton Icon="Play" Label="Play"/>
+            <AppBarToggleButton Icon="RepeatAll" Label="Repeat"/>
+            <CommandBar.Content>
+                <TextBlock Text="Now Playing" Margin="20"/>
+            </CommandBar.Content>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Like" Label="Like"/>
+                <AppBarButton Icon="Dislike" Label="Dislike"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Next line may be overridden in .cs file -->
+        <!--<WebView x:Name="WebView1" Source="http://sarajade.co.nf"/>-->
+        <map:MapControl Name="map1" ZoomLevel="5" Heading="30">
+           <!-- <SymbolIcon x:Name="tickMark" Symbol="Accept"/>-->
+            <Image x:Name="skates" Source="skates.jpg" Width="50" Height="50"/>
+        </map:MapControl>
     </Grid>
 </Page>
